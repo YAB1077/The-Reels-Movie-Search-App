@@ -1,0 +1,111 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Reels | OMDb Movie Search</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Header and search area -->
+  <header class="hero">
+    <nav class="nav" aria-label="Primary navigation">
+      <a class="brand" href="#" aria-label="The Reels home">
+        <span class="brand-mark" aria-hidden="true">
+          <img src="assets/the-reels-logo.png" alt="">
+        </span>
+        <span>The Reels</span>
+      </a>
+
+      <span class="project-badge">OMDb catalog</span>
+    </nav>
+
+    <section class="hero-content" aria-labelledby="page-title">
+      <h1 id="page-title">Discover Your Next Movie</h1>
+      <p class="hero-copy">Browse posters, compare release years, and sort your results instantly.</p>
+
+      <div class="search-panel">
+        <form class="search-form" id="searchForm" role="search">
+          <label class="visually-hidden" for="searchInput">Search movies</label>
+          <input
+            id="searchInput"
+            name="search"
+            type="search"
+            autocomplete="off"
+            placeholder="Search movie title"
+            aria-describedby="searchHint"
+          >
+          <button type="submit" aria-label="Search">
+            <svg width="31" height="31" viewBox="0 0 24 24" aria-hidden="true">
+              <path fill="currentColor" d="m20.49 19.07-4.4-4.39a7.92 7.92 0 1 0-1.41 1.41l4.39 4.4a1 1 0 0 0 1.42-1.42ZM5 10a5 5 0 1 1 10 0 5 5 0 0 1-10 0Z"/>
+            </svg>
+          </button>
+        </form>
+      </div>
+      <p class="visually-hidden" id="searchHint">Type a movie keyword and press Enter or use the search button.</p>
+    </section>
+  </header>
+
+  <!-- Results, sorting, and display controls -->
+  <main class="page-shell" id="results">
+    <section class="results-header" aria-labelledby="resultsTitle">
+      <div>
+        <h2 class="results-title" id="resultsTitle">Movie Results</h2>
+        <p class="results-meta" id="resultsMeta">A few real movie results are loaded to get you started.</p>
+      </div>
+
+      <div class="sort-card">
+        <div class="filter-control">
+          <label for="sortSelect">Sort by</label>
+          <select class="sort-select" id="sortSelect" aria-label="Sort movie results">
+            <option value="az">A-Z</option>
+            <option value="za">Z-A</option>
+            <option value="newest" selected>Newest</option>
+            <option value="oldest">Oldest</option>
+          </select>
+        </div>
+
+        <div class="filter-control">
+          <label for="limitSelect">Show</label>
+          <select class="sort-select" id="limitSelect" aria-label="Number of movie results to show">
+            <option value="6" selected>6 movies</option>
+            <option value="9">9 movies</option>
+            <option value="12">12 movies</option>
+            <option value="15">15 movies</option>
+          </select>
+        </div>
+      </div>
+    </section>
+
+    <!-- Dynamic app states -->
+    <div class="error-message" id="errorMessage" role="alert" hidden></div>
+    <div class="loading-message" id="loadingMessage" role="status" hidden>Loading movies...</div>
+
+    <!-- Movie cards render here -->
+    <section class="movie-grid" id="movieGrid" aria-live="polite"></section>
+
+    <!-- Empty or no-results state -->
+    <section class="empty-state" id="emptyState">
+      <div class="empty-illustration" aria-hidden="true">
+        <img src="assets/stickman-watching-tv.png" alt="">
+      </div>
+      <!-- Illustration attribution: Stickman watching TV by IconScout Store on IconScout. -->
+      <h2 id="emptyHeading">Search for your next movie</h2>
+      <p id="emptyText" hidden></p>
+      <div class="empty-actions" id="emptyActions" hidden>
+        <button class="reset-button" id="resetButton" type="button">Reset search</button>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>&copy; 2026 The Reels. Movie discovery, sorted simply.</span>
+      <span>Powered by OMDb API</span>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
+
